@@ -1,9 +1,6 @@
 package com.btrust;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +38,14 @@ public class ReaderAndWriter {
             e.printStackTrace();
         }
         return txList;
+    }
+
+    public static void writeBlockToFile(String filePath, List<BitcoinTransaction> blockTxids) throws IOException {
+        FileWriter writer = new FileWriter(filePath);
+        for (BitcoinTransaction tx : blockTxids) {
+            writer.write(tx.txId+ "\n");
+        }
+        writer.close();
     }
 
 

@@ -2,6 +2,7 @@ package com.btrust;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BitcoinTransaction implements Comparable<BitcoinTransaction>{
     String txId;
@@ -13,7 +14,9 @@ public class BitcoinTransaction implements Comparable<BitcoinTransaction>{
         this.txId = txId;
         this.fee = fee;
         this.weight = weight;
-        this.parents = parents;
+
+        this.parents = Objects.requireNonNullElseGet(parents, ArrayList::new);
+
     }
 
     public String toString(){
@@ -27,12 +30,10 @@ public class BitcoinTransaction implements Comparable<BitcoinTransaction>{
 
     @Override
     public int compareTo(BitcoinTransaction next) {
-//        0: Indicates that the objects are equal in terms of their natural ordering.
-//        -1: Indicates that the object calling compareTo is less than the object being compared to.
-//        1: Indicates that the object calling compareTo is greater than the object being compared to.
 
-
-        return Double.compare(next.fee, this.fee);
+        double nextD = next.fee / next.weight;
+        double thisD = this.fee / this.weight;
+        return Double.compare(nextD, thisD);
 
     }
 }

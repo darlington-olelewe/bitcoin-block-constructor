@@ -1,0 +1,10 @@
+
+
+
+
+
+-> Create a transaction class
+    txId, fee, weight, parents
+
+-> add line by line
+    * add a line line

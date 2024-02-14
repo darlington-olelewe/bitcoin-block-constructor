@@ -1,16 +1,7 @@
-package com.btrust;
+# Block Constructor
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-/**
- * This is Bitcoin Transaction model
- * txId = this is the transaction Id
- * fee = this is the fee associated with the transaction
- * weight = this is the transaction weight
- *
- */
+### BitcoinTransaction Model
+```java
 public class BitcoinTransaction implements Comparable<BitcoinTransaction>{
     String txId;
     double fee;
@@ -37,3 +28,5 @@ public class BitcoinTransaction implements Comparable<BitcoinTransaction>{
         return Double.compare(nextD, thisD);
     }
 }
+```
+The model is a typical pojo that 
